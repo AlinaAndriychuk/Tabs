@@ -1,0 +1,58 @@
+$green: #49b344
+$red: #eb2c1e
+$yellow: #e8d525
+  
+body
+  margin: 0
+  padding: 0
+
+  font-family: 'Arial', sans-serif
+
+.slider
+  margin: auto
+  height: fit-content
+  width: 350px
+
+  overflow-x: hidden
+
+.slider__pages-container
+  position: relative
+  height: fit-content
+  width: fit-content
+
+  display: flex
+
+.slider__page
+  width: 350px
+  height: 600px
+
+  display: flex
+  text-align: center
+
+  color: #fff
+
+.slider__page--green
+  background-color: $green
+
+.slider__page--red
+  background-color: $red
+
+.slider__page--yellow
+  background-color: $yellow
+
+.slider__title
+  margin: auto
+
+.slider__tabs-container
+  padding: 0
+  margin: 5px 0
+
+  display: flex
+  justify-content: space-around
+
+  list-style-type: none
+
+.slider__tab
+  padding: 10px
+
+  cursor: pointer
