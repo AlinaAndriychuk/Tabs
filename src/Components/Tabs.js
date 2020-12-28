@@ -1,17 +1,11 @@
 import React from 'react';
-import renderTab from '../Functions/renderTab';
+import TabItems from './TabItems';
 
-function Slider(props) {
+function Tabs(props) {
   return (
-    <div className="slider">
-      <ul className="slider__tabs-container">
-        {
-          props.options.map( (item) => {
-            return renderTab(item)
-          })
-        }
-      </ul>
-      <div className="slider__pages-container">
+    <div className="tabs">
+      <TabItems options={props.options} onChange={props.onChange} renderTab={props.renderTab}></TabItems>
+      <div className="slider">
         <div className="slider__page slider__page--green">
           <h1 className="slider__title">
             Page 1
@@ -32,4 +26,4 @@ function Slider(props) {
   )
 };
 
-export default Slider;
+export default Tabs;

@@ -3,14 +3,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.sass';
 import * as serviceWorker from './serviceWorker';
-import Slider from './Components/Slider';
+import Tabs from './Components/Tabs';
 
-const options = [{ value: '1', label: 'Tab One'}, { value: '2', label: 'Tab Two'}, { value: '3', label: 'Tab Three'}]
+const options = [{ value: '1', label: 'Tab One'}, { value: '2', label: 'Tab Two'}, { value: '3', label: 'Tab Three'}];
+const value = { value: '1', label: 'Tab One'};
+
+function renderTab(label) {
+  return label
+};
+
+function onChange(num) {
+  const slider = document.querySelector('.slider');
+  const pageWidth = slider.querySelector('.slider__page').clientWidth;
+
+  slider.style.right = pageWidth * (num - 1) + 'px';
+};
 
 ReactDOM.render(
-  <React.Fragment>
-    <Slider options={options}></Slider>
-  </React.Fragment>,
+  <Tabs options={options} value={value} renderTab={renderTab} onChange={onChange}>
+  </Tabs>,
   document.getElementById('container')
 );
 
