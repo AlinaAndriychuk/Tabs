@@ -1,8 +1,11 @@
 import React, {useRef} from 'react';
+import classNames from 'classnames';
 
 function TabItem(props) {
+  const itemClass = classNames({"tabs__item": true, active: props.active});
+
   return (
-    <li className="tabs__item" onClick={ () => props.switchTab(props.options.value) }>
+    <li className={itemClass} onClick={ () => props.switchTab(props.options) }>
       {props.renderTab(props.options.label)}
     </li>
   )
@@ -12,10 +15,11 @@ function Tabs(props) {
   const slider = useRef(null);
   const sliderPage = useRef(null);
 
-  function switchTab(num) {
+  function switchTab(value) {
     const pageWidth = sliderPage.current.clientWidth; 
-    
-    props.onChange(num, pageWidth, slider.current)
+    slider.current.style.right = pageWidth * (value.value - 1) + "px";
+  
+    props.onChange(value)
   }
   
   return (
@@ -24,7 +28,7 @@ function Tabs(props) {
         {
           props.options.map( item => {
             return (
-              <TabItem options={item} switchTab={switchTab} renderTab={props.renderTab} key={item.value}></TabItem>  
+              <TabItem options={item} switchTab={switchTab} active={props.value.value === item.value} renderTab={props.renderTab} key={item.value}></TabItem>  
             )
           })
         }
