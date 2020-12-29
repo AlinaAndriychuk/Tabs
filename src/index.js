@@ -12,11 +12,8 @@ function renderTab(label) {
   return label
 };
 
-function onChange(num) {
-  const slider = document.querySelector('.slider');
-  const pageWidth = slider.querySelector('.slider__page').clientWidth;
-
-  slider.style.right = pageWidth * (num - 1) + 'px';
+function onChange(num, width, slider) {
+  slider.style.right = width * (num - 1) + "px";
 };
 
 ReactDOM.render(
