@@ -6,7 +6,6 @@ import * as serviceWorker from './serviceWorker';
 import Tabs from './Components/Tabs';
 
 const options = [{ value: '1', label: 'Tab One'}, { value: '2', label: 'Tab Two'}, { value: '3', label: 'Tab Three'}];
-const compareLabel = ['Tab One', 'Tab two', 'Tab three'];
 
 function View() {
   const [value, setValue] = useState({ value: '1', label: 'Tab One'});
